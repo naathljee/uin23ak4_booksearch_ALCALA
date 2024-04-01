@@ -1,4 +1,4 @@
-const books = [
+export const booksApi = [
 {
     "numFound": 2700,
     "start": 0,

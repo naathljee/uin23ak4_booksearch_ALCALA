@@ -1,4 +1,4 @@
-export default function kategorier (){
+export default function Categories (){
     const Kategorier = ["title","publish_year","publish_place", "lenguage"]
     return(
         <>
