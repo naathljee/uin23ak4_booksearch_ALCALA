@@ -2,7 +2,8 @@ import { useState } from 'react'
 import { Route,Routes } from 'react-router-dom'
 import './App.css'
 import { booksApi } from './assets/booksApi'
-import Bookcard from './Komponenter/bookcard'
+import Bookcard from './Komponenter/Bookcard'
+
 
 function App() {
   console.log(booksApi)
