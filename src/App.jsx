@@ -13,7 +13,7 @@ function App() {
   <>
   <div className='App'>
     {booksApi.map((book) =>
-    <Bookcard key={book.docs} bName={book.title} bAuthor={book.author_name} bPublish={book.publish_year} bRate={book.ratings_count} />
+    <Bookcard key={book.key} bName={book.title} bAuthor={book.author_name} bPublish={book.publish_year} bRate={book.ratings_count} />
 
     
     

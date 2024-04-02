@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
+
 export default function Amazon(){
-    return <h3>{amazonLink}</h3>
+    return <Link to={"#"}></Link>
 
     
 }
