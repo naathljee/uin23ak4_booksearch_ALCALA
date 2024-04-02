@@ -2,9 +2,7 @@ import { useState } from 'react'
 import { Route,Routes } from 'react-router-dom'
 import './App.css'
 import { booksApi } from './assets/booksApi'
-import Bookcard from './Komponenter/Bookcard'
-
-
+import Bookcard from './Komponenter/bookcard'
 function App() {
   console.log(booksApi)
 
@@ -13,7 +11,7 @@ function App() {
   <>
   <div className='app'>
     {booksApi.map((book) =>
-    <Bookcard key={book.docs} bName={book.title} bAuthor={book.author_name} />
+    <Bookcard key={book.docs} bName={book.title} bAuthor={book.author_name} bPublish={book.publish_year} bRate={book.ratings_count} />
 
     
     
