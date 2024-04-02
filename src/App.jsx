@@ -13,9 +13,16 @@ function App() {
 
 
   return (
-    <>
-    <h1>James Bond Book Search</h1>
-    </>
+    <Layout>
+      <Routes>
+        <Route element={<Main/>}/>
+        <Route path="characters/*" element={<Categories />}>
+          <Route index element={<CategoriesIndex content={content} setQuery={setQuery} setCurrentId={setCurrentId} />}/>
+          <Route path=':slug' element={<Category posts={posts} currentId={currentId} />}/>
+          <Route path=':slug/:postid' element={<PostPage posts={posts} />} />
+        </Route>
+      </Routes>
+    </Layout>
   )
 }
 
