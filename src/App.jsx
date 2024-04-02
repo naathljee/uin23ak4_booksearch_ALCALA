@@ -1,28 +1,30 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Route,Routes } from 'react-router-dom'
 import './App.css'
-import { booksApi } from './assets/booksApi'
+//import {booksApi} from '../src/assets/booksApi.json'
 import Bookcard from './Komponenter/Bookcard'
+import Knapp from './Komponenter/Knapp'
 
 
 function App() {
-  console.log(booksApi)
+  const [books, setBooks] = useState([])
+
+  const hentAPI= async()=>{
+      const response = await fetch(`https://openlibrary.org/search.json?q=james+bond`);
+
+      const data = await response.json();
+
+      console.log("hei", data)
+  }
+
+  useEffect(() =>{
+    hentAPI()
+  }, [])
 
 
-  return (
-  <>
-  <div className='App'>
-    {booksApi.map((book) =>
-    <Bookcard key={book.key} bName={book.title} bAuthor={book.author_name} bPublish={book.publish_year} bRate={book.ratings_count} />
-
-    
-    
-    )}
-    
-    
-    
-  </div>
-  </>  )
+  return (<>
+  </>
+  )
 }
 
 export default App
