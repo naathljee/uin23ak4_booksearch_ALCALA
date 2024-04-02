@@ -1,29 +1,27 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Route,Routes } from 'react-router-dom'
 import './App.css'
-import Categories from './Komponenter/Categories'
-import Main from './Komponenter/Main'
-
 import { booksApi } from './assets/booksApi'
-
+import Bookcard from './Komponenter/bookcard'
 
 function App() {
   console.log(booksApi)
 
 
   return (
-    <Layout>
-      <Routes>
-        <Route element={<Main/>}/>
-        <Route path="characters/*" element={<Categories />}>
-          <Route index element={<CategoriesIndex content={content} setQuery={setQuery} setCurrentId={setCurrentId} />}/>
-          <Route path=':slug' element={<Category posts={posts} currentId={currentId} />}/>
-          <Route path=':slug/:postid' element={<PostPage posts={posts} />} />
-        </Route>
-      </Routes>
-    </Layout>
-  )
+  <>
+  <div className='app'>
+    {booksApi.map((book) =>
+    <Bookcard key={book.docs} bName={book.title} bAuthor={book.author_name} />
+
+    
+    
+    )}
+    
+    
+    
+  </div>
+  </>  )
 }
 
 export default App
