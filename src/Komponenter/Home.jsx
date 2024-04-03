@@ -1,7 +1,16 @@
-import { useParams } from 'react-router-dom'
+import React from 'react';
 
-export default function Home (){
-        const {slug} = useParams ()
-        return <h1>{slug}</h1>
-        
-    }
+function BookList({ books }) {
+  return (
+    <div className="book-list">
+      <h2>Alle bøker</h2>
+      <ul>
+        {books.map((book, index) => (
+          <li key={index}>{book.title}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default BookList;

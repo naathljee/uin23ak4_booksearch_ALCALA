@@ -1,18 +1,19 @@
-import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
 
-export default function Visning(){
-    return <>
-    <header>
-        
-        <main>
-        </main>
-        <footer>
-        </footer>
-
-
-    </header>
-    
-    </>
-    
+function Visning({ children }) {
+  return (
+    <div className="visning">
+      <header>
+        <h1>James Bond's Books</h1>
+      </header>
+      <main>
+        {children}
+      </main>
+      <footer>
+        <p>&copy;James Bond's Books </p>
+      </footer>
+    </div>
+  );
 }
+
+export default Layout;
