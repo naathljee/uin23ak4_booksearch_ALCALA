@@ -1,19 +1,29 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import Home from './Home'
 
 function Visning({ children }) {
   return (
     <div className="visning">
       <header>
         <h1>James Bond's Books</h1>
+        <nav>
+            <ul>
+                <li>
+                    <Link to="/Home">Home</Link>
+                </li>
+            </ul>
+        </nav>
       </header>
       <main>
         {children}
+    
       </main>
       <footer>
-        <p>&copy;James Bond's Books </p>
+        <p>&copy;Oblig 4 - Nathalie Alcala </p>
       </footer>
     </div>
   );
 }
 
-export default Layout;
+export default Visning;

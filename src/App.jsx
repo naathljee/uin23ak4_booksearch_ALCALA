@@ -3,7 +3,7 @@ import { Route,Routes } from 'react-router-dom'
 import './App.css'
 //import {booksApi} from '../src/assets/booksApi.json'
 import Bookcard from './Komponenter/Bookcard'
-import Knapp from './Komponenter/Searchresult'
+import Searchresult from './Komponenter/Searchresult'
 import Visning from './Komponenter/Visning'
 import Home from './Komponenter/Home'
 
@@ -27,16 +27,25 @@ function App() {
 
   useEffect(() =>{
     hentAPI()
-  }, [])
+  }, [searchText]);
 
 
   return (
   <Routes>
-    <Route element={<Visning/>}/>
-      <Route element ={<Home/>}/>
-      <Route path=':slug' element={Bookcard}/>
+    <Route path='/' element={
+    <Visning>
+      <Home books={books}></Home>
+    </Visning>
+    }/>
+      <Route path='/Home' element={<Home books={books}/>}/>
+      <Route element ={
+        <Searchresult
+        searchText={searchText}
+        setSearchText={setSearchText}
+        />
+      } />
       </Routes> 
-      )
+      );
   }
 
   export default App
