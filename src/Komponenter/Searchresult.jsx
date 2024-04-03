@@ -1,14 +1,13 @@
 import { useState } from "react";
-import { Await } from "react-router-dom";
 import Bookcard from "./Bookcard";
 
-export default function Searchresult({}){
-    const [searchText, setSearchText] = useState("");
-    const [Searchresult, setSearchResult] = useState (null);
+export default function Searchresult(){
+    const [searchText, setSearchText] = useState('')
+    const [searchResult, setSearchResult] = useState (null);
 
     const fetchTitle = async (searchText) => {
         try {
-            const response = await fetch ()
+            const response = await fetch (`https://openlibrary.org/search.json?q=${searchText}`)
             const data = await response.json();
             setSearchResult(data.docs);
         } catch (error) {
@@ -24,10 +23,10 @@ export default function Searchresult({}){
     const searchInnsending = async (event) =>{
         event.preventDefault();
 
-        if(searchText.length >=3){
+        if(searchText.length >= 3){
             try{
-                const text = await fetchTitle(searchText);
-                setData(text);
+                 await fetchTitle(searchText);
+                
             } catch (error) {
                 console.error ('Henting av data failet', error);
             }
@@ -51,8 +50,15 @@ export default function Searchresult({}){
     </form>
     <div>
         <h2>Søkeresutater</h2>
-        {setData.map((book, index) => (
-                    <Bookcard key={index} book={book} />))}
+        {searchResult && searchResult.map((book, index) => (
+                    <Bookcard key={index} book={{
+                        title: book.title,
+                        first_publish_year: book.first_publish_year,
+                        author_name: book.author_name,
+                        ratings_average: book.ratings_average,
+                        amazon_id: book.amazon_id
+
+                    }} />))}
     </div>
     </div>
     )

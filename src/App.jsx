@@ -7,7 +7,6 @@ import Searchresult from './Komponenter/Searchresult'
 import Visning from './Komponenter/Visning'
 import Home from './Komponenter/Home'
 
-
 function App() {
   const [searchText, setSearchText] = useState('')
   const [books, setBooks] = useState([])
@@ -27,23 +26,16 @@ function App() {
 
   useEffect(() =>{
     hentAPI()
-  }, [searchText]);
-
+  }, []);
 
   return (
-  <Routes>
-    <Route path='/' element={
     <Visning>
-    </Visning>
-    }/>
-      <Route path='/Home' element={<Home books={books}/>}/>
-      <Route path='/search'element ={<Searchresult
-        searchText={searchText}
-        setSearchText={setSearchText}
-        />
-      } />
-      </Routes> 
-      );
-  }
+      <Routes>
+        <Route path="/Home" element={<Home books={books} />} />
+        <Route path="/search" element={<Searchresult />} />
+      </Routes>
+      </Visning>
+  );
+}
 
   export default App
