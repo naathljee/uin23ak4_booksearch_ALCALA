@@ -9,7 +9,7 @@ function Visning({ children }) {
         <h1>James Bond's Books</h1>
         <nav>
             <ul>
-                <li>
+                <li> 
                     <Link to="/Home">Home</Link>
                 </li>
             </ul>

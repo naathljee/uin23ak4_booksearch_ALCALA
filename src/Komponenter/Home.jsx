@@ -1,8 +1,9 @@
 import React from 'react';
 
-function BookList({ books }) {
+function Home({ books }) {
   return (
     <div className="book-list">
+      
       <h2>Alle bøker</h2>
       <ul>
         {books.map((book, index) => (
@@ -13,4 +14,4 @@ function BookList({ books }) {
   );
 }
 
-export default BookList;
+export default Home;

@@ -34,12 +34,10 @@ function App() {
   <Routes>
     <Route path='/' element={
     <Visning>
-      <Home books={books}></Home>
     </Visning>
     }/>
       <Route path='/Home' element={<Home books={books}/>}/>
-      <Route element ={
-        <Searchresult
+      <Route path='/search'element ={<Searchresult
         searchText={searchText}
         setSearchText={setSearchText}
         />

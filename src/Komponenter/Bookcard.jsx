@@ -7,14 +7,19 @@ import Amazon from "./Amazon"
 
 
 
-export default function Bookcard({bName, bPublish, bAuthor, bRate, bURL}){
+export default function Bookcard({book}){
+    if(!book){
+        return null;
+    }
+const {title, first_publish_year, author_name, average_rating, amzon_id} =book;
+
     return (
         <article>
-           <Booktitle title={bName}/>
-            <Bookyear year={bPublish}/>
-            <Bookby author={bAuthor}/>
-            <Bookrate rating ={bRate} />
-            <Amazon amazonLink ={bURL}/>
+           <Booktitle title={title}/>
+            <Bookyear year={first_publish_year}/>
+            <Bookby author={author_name}/>
+            <Bookrate rating ={average_rating} />
+            <Amazon amazonLink ={`https://www.amazon.com/s?k=${amazon_id}`}/>
         </article>
     )
     
