@@ -31,9 +31,10 @@ function App() {
   return (
     <Visning>
       <Routes>
-        <Route path="/Home" element={<Home books={books} />} />
+      <Route path="/Home" element={<Home books={books} />} />
         <Route path="/search" element={<Searchresult setSearchText={setSearchText}/>} />
       </Routes>
+
       </Visning>
   );
 }

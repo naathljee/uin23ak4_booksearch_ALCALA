@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Bookcard({book}){
 
     if(!book){
@@ -11,6 +13,7 @@ const {title, first_publish_year, author_name, ratings_average, amazon_id} =book
             <p> Year: {first_publish_year}</p>
             <p> Author: {author_name}</p>
             <p>Rating : {ratings_average} </p>
+            <Link to="/amazon_id"/>
             {amazon_id && (
                 <a href={`https://www.amazon.com/s?k=${amazon_id}`}> Amazon Link </a>
             )}

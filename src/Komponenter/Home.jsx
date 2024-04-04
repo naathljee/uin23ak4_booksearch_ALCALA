@@ -1,30 +1,25 @@
 import React from 'react';
 import Bookcard from './Bookcard';
+import Searchresult from './Searchresult';
 
-function Home({ books }) 
-  { console.log(books, "home")
-    if (!books || books.length === 0) {
-      return <div>Ingen bøker tilgjengelig</div>;
-    }
-
+function Home({ books, filterText}){
+const filterBooks = filterText
+  ? books.filter(book =>
+      book.title.toLowerCase().includes(filterText.toLowerCase())
+    
+    )
+    : books;
+  
   return (
     
     <div className="book-list">
       
       <h2>Alle bøker</h2>
-      <ul>
-      {books.map((book,index) =>(
-        <Bookcard key={index}
-        book={{
-          title:book.title,
-          first_publish_year: book.first_publish_year,
-          author_name: book.author_name,
-          ratings_average:book.ratings_average,
-          amazon_id:book.amazon_id
-        }}
-        />
+      {filterBooks.map((book,index)=>(
+        <Bookcard key={index} book={book}/>
+
       ))}
-      </ul>
+      
     </div>
   );
 }

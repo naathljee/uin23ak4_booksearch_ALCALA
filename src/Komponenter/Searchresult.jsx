@@ -2,13 +2,12 @@ import { useState } from "react";
 import Bookcard from "./Bookcard";
 
 export default function Searchresult(){ 
-    
     const [searchText, setSearchText] = useState('')
     const [searchResult, setSearchResult] = useState (null);
 
     const fetchTitle = async (searchText) => {
         try {
-            const response = await fetch (`https://openlibrary.org/search.json?q=${searchText}`)
+            const response = await fetch (`https://openlibrary.org/search.json?title=${searchText}`)
             const data = await response.json();
             setSearchResult(data.docs);
         } catch (error) {
