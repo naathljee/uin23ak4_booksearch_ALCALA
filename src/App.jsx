@@ -12,12 +12,10 @@ function App() {
   const [books, setBooks] = useState([])
 
 
-  const hentAPI= async()=>{
+  const hentAPI= async(searchText)=>{
     try{
       const response = await fetch(`https://openlibrary.org/search.json?q=james+bond`);
-
       const data = await response.json();
-
       console.log("hei", data)
       setBooks(data.docs);
   } catch (error){
@@ -25,14 +23,16 @@ function App() {
   }}
 
   useEffect(() =>{
-    hentAPI()
+    hentAPI();
   }, []);
+
+  
 
   return (
     <Visning>
       <Routes>
         <Route path="/Home" element={<Home books={books} />} />
-        <Route path="/search" element={<Searchresult />} />
+        <Route path="/search" element={<Searchresult setSearchText={setSearchText}/>} />
       </Routes>
       </Visning>
   );

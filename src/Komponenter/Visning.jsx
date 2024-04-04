@@ -14,7 +14,6 @@ function Visning({ children }) {
       </header>
       <main>
         {children}
-    
       </main>
       <footer>
         <p>&copy;Oblig 4 - Nathalie Alcala </p>

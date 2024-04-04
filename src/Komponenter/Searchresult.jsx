@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Bookcard from "./Bookcard";
 
-export default function Searchresult(){
+export default function Searchresult(){ 
+    
     const [searchText, setSearchText] = useState('')
     const [searchResult, setSearchResult] = useState (null);
 
