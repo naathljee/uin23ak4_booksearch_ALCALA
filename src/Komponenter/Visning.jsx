@@ -26,7 +26,7 @@ function Visning({ books }) {
         <Home books={searchResult || books} />
       </main>
       <footer>
-        <p>&copy;Oblig 4 - Nathalie Alcala</p>
+        <p>Oblig 4 - Nathalie Alcalá</p>
       </footer>
     </div>
   );
