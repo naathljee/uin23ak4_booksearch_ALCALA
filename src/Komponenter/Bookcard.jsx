@@ -6,7 +6,7 @@ export default function Bookcard({book}){
         return null;
     }
 const {title, first_publish_year, author_name, ratings_average, cover_i} =book;
-
+//her har jeg måttet brukt chatGpt for å hjelpe meg å strukturere amazon linken, da jeg ikke fikk til selv, å printe ut bilder. for å være eksakt
 const amazonBilde = cover_i
 ? `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`
 : "null";

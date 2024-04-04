@@ -1,7 +1,7 @@
 import React from 'react';
 import Bookcard from './Bookcard';
-import Searchresult from './Searchresult';
 
+//funksjon som legger til fitrering for søksresultat av titlter
 function Home({ books, filterText}){
 const filterBooks = filterText
   ? books.filter(book =>
