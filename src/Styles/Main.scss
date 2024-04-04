@@ -1,3 +1,7 @@
+@import 'BokKort';
+@import 'Layout';
+@import 'Search';
+
 body{
 
     background-color: grey;
@@ -5,14 +9,3 @@ body{
 
 }
 
-#visning{
-    display: flexbox;
-    height: 10px;
-    width: 10px;
-}
-
-#Bokvisning{
-    display: flexbox;
-    flex-direction: column;
-    border: 1px solid white;
-}

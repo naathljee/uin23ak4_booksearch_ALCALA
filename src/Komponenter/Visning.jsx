@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Home from './Home';
 import Searchresult from './Searchresult';
 
-function Visning({ books, setBooks }) {
+function Visning({ books }) {
   const [searchResult, setSearchResult] = useState(null);
 
   const handleSearch = async (searchText) => {
