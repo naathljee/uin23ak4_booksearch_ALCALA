@@ -15,9 +15,9 @@ const amazon_id= `https://www.amazon.com/s?k=${encodeURIComponent(book.title + "
         <article className="Bokvisning">
            <h2> {title} </h2>
            <img id= "img" src={amazonBilde}/>
-            <p> Utgivelses år: {first_publish_year}</p>
-            <p> Forfatter: {author_name}</p>
-            <p> Rating : {ratings_average} </p>
+            <p id="publish"> Utgivelses år: {first_publish_year}</p>
+            <p id="author"> Forfatter: {author_name}</p>
+            <p id="rate"> Rating : {ratings_average} </p>
             <a id="Amazonlink"href={amazon_id}target="_blank">Kjøp her!</a>
         
         </article>
