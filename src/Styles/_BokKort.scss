@@ -1,14 +1,50 @@
+@import "Variabler";
+
+
 article.Bokvisning{
     display: flex;
     flex-direction: column;
     border: 1px solid #0000;
     border-radius: 8px;
-    box-shadow: 2px 2px 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 2px 2px 4px 6px rgba(0,0,0,0.1);
     padding: 20px;
     margin-bottom: 20px;
 }
 
 #img{
-   width: 200px;
-   height: auto; 
+   width: 500px;
+   height: auto;
+   padding-left: 300px;
+   
+}
+
+h2{
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+#author{
+    font-size: 1.5rem;
+}
+
+#publish{
+ font-size: 1.2rem;
+}
+
+#rate{
+    font-size: 1rem;
+}
+#Amazonlink{
+    text-decoration: none;
+    margin-top: 10px;
+    color: $theAmericano;
+}
+#Amazonlink:hover{
+    font-size: large;
+    font-weight:800;
+    text-decoration:underline;
+    margin-top: 10px;
+    color: $theAmericano;
 }

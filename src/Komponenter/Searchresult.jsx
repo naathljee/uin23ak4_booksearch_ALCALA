@@ -39,8 +39,9 @@ export default function Searchresult(){
 
     return (
    <div>
-    <form onSubmit={searchInnsending}>
+    <form id="sk_felt" onSubmit={searchInnsending}>
         <input
+        id="text_felt"
         type="text"
         placeholder="Søk her"
         value={searchText}

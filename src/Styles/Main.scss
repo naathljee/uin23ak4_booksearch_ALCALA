@@ -1,10 +1,11 @@
 @import 'BokKort';
 @import 'Layout';
 @import 'Search';
+@import 'Variabler';
 
 body{
 
-    background-color: grey;
+    background-color: $Bollinger;
     width: 100%;
 
 }
