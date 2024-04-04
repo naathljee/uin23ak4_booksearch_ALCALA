@@ -14,7 +14,6 @@ const filterBooks = filterText
     
     <div className="book-list">
       
-      <h2>Alle bøker</h2>
       {filterBooks.map((book,index)=>(
         <Bookcard key={index} book={book}/>
 

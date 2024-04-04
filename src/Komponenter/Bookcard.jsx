@@ -5,18 +5,21 @@ export default function Bookcard({book}){
     if(!book){
         return null;
     }
-const {title, first_publish_year, author_name, ratings_average, amazon_id} =book;
+const {title, first_publish_year, author_name, ratings_average, cover_i} =book;
 
+const amazonBilde = cover_i
+? `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`
+: "null";
+const amazon_id= `https://www.amazon.com/s?k=${encodeURIComponent(book.title + " book")}`;
     return (
         <article className="Bokvisning">
-           <h3> Title: {title} </h3>
-            <p> Year: {first_publish_year}</p>
-            <p> Author: {author_name}</p>
-            <p>Rating : {ratings_average} </p>
-            <Link to="/amazon_id"/>
-            {amazon_id && (
-                <a href={`https://www.amazon.com/s?k=${amazon_id}`}> Amazon Link </a>
-            )}
+           <h2> {title} </h2>
+           <img src={amazonBilde}/>
+            <p> Utgivelses år: {first_publish_year}</p>
+            <p> Forfatter: {author_name}</p>
+            <p> Rating : {ratings_average} </p>
+            <a id="Amazonlink"href={amazon_id}target="_blank">Kjøp her!</a>
+        
         </article>
     )
     

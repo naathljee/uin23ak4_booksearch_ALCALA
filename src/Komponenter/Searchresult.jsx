@@ -1,13 +1,13 @@
 import { useState } from "react";
 import Bookcard from "./Bookcard";
 
-export default function Searchresult(){ 
+export default function Searchresult(){
     const [searchText, setSearchText] = useState('')
     const [searchResult, setSearchResult] = useState (null);
 
     const fetchTitle = async (searchText) => {
         try {
-            const response = await fetch (`https://openlibrary.org/search.json?title=${searchText}`)
+            const response = await fetch (`https://openlibrary.org/search.json?q=${searchText}`)
             const data = await response.json();
             setSearchResult(data.docs);
         } catch (error) {
@@ -49,7 +49,6 @@ export default function Searchresult(){
         <button type="submit">Søk her</button>
     </form>
     <div>
-        <h2>Søkeresutater</h2>
         {searchResult && searchResult.map((book, index) => (
                     <Bookcard key={index} book={{
                         title: book.title,

@@ -1,42 +1,32 @@
-import { useState, useEffect } from 'react'
-import { Route,Routes } from 'react-router-dom'
-import './App.css'
-//import {booksApi} from '../src/assets/booksApi.json'
-import Bookcard from './Komponenter/Bookcard'
-import Searchresult from './Komponenter/Searchresult'
-import Visning from './Komponenter/Visning'
-import Home from './Komponenter/Home'
+import React, { useState, useEffect } from 'react';
+import './App.css';
+import Bookcard from './Komponenter/Bookcard';
+import Searchresult from './Komponenter/Searchresult';
+import Visning from './Komponenter/Visning';
 
 function App() {
-  const [searchText, setSearchText] = useState('')
-  const [books, setBooks] = useState([])
+  const [books, setBooks] = useState([]);
 
-
-  const hentAPI= async(searchText)=>{
-    try{
+  const hentAPI = async () => {
+    try {
       const response = await fetch(`https://openlibrary.org/search.json?q=james+bond`);
       const data = await response.json();
-      console.log("hei", data)
+      console.log("hei", data);
       setBooks(data.docs);
-  } catch (error){
-    console.error('Feil innheting av data app.jxs', error)
-  }}
+    } catch (error) {
+      console.error('Feil innhenting av data i App.jsx', error);
+    }
+  };
 
-  useEffect(() =>{
+  useEffect(() => {
     hentAPI();
   }, []);
 
-  
-
   return (
-    <Visning>
-      <Routes>
-      <Route path="/Home" element={<Home books={books} />} />
-        <Route path="/search" element={<Searchresult setSearchText={setSearchText}/>} />
-      </Routes>
-
-      </Visning>
+    <div className="App">
+      <Visning books={books} setBooks={setBooks} />
+    </div>
   );
 }
 
-  export default App
+export default App;

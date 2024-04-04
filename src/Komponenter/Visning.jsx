@@ -1,23 +1,31 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Home from './Home'
+import React, { useState } from 'react';
+import Home from './Home';
+import Searchresult from './Searchresult';
 
-function Visning({children}) {
+function Visning({ books, setBooks }) {
+  const [searchResult, setSearchResult] = useState(null);
+
+  const handleSearch = async (searchText) => {
+    try {
+      const response = await fetch(`https://openlibrary.org/search.json?q=${searchText}`);
+      const data = await response.json();
+      setSearchResult(data.docs);
+    } catch (error) {
+      console.error('Henting av data feilet', error);
+    }
+  };
+
   return (
     <div className="visning">
       <header>
         <h1>James Bond Books</h1>
-        <nav>
-            <Link to="/Home"></Link>
-            <Link to="/search"></Link>
-        </nav>
       </header>
       <main>
-      {children}
-
+        <Searchresult setSearchResult={setSearchResult} handleSearch={handleSearch} />
+        <Home books={searchResult || books} />
       </main>
       <footer>
-        <p>&copy;Oblig 4 - Nathalie Alcala </p>
+        <p>&copy;Oblig 4 - Nathalie Alcala</p>
       </footer>
     </div>
   );
