@@ -8,8 +8,8 @@ function Visning({ children }) {
       <header>
         <h1>James Bond's Books</h1>
         <nav>
-            <ul>
-            </ul>
+            <Link to="/Home"></Link>
+            <Link to="/search"></Link>
         </nav>
       </header>
       <main>
